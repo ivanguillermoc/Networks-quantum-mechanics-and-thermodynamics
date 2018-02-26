@@ -1,0 +1,69 @@
+n=4;
+
+A=round(rand(n));
+
+A=max(A,A');
+
+for i=1:n
+
+    A(i,i)=0;
+
+end
+
+B=zeros(n);
+
+for j=1:n
+
+    for k=1:n
+
+      if A(j,k)==1
+
+          B(j,j)=B(j,j)+1;
+
+      end
+
+    end
+
+end
+
+C=B-A;
+
+c=0;
+
+for a=1:n
+
+    for b=a:n
+
+        if A(a,b)==1
+
+            c=c+1;
+
+        end
+
+    end
+
+end
+
+M=zeros(n,c);
+
+m=1;
+
+for p=1:n
+
+   for q=p:n
+
+       if A(p,q)==1
+
+           M(p,m)=1;
+
+           M(q,m)=-1;
+
+           m=m+1;
+
+       end
+
+   end
+
+end
+
+M;
